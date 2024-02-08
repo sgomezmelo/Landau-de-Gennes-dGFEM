@@ -11,8 +11,6 @@ import os
 # using the discontinuous Galerkin finite element method. The code takes as input a Fenics/dolfin suitable geometry
 # in xdmf format and ratio of constants L/c and a/c, while assuming b = c.
 
-#### 1.Import files and define constants ####
-
 #Create folder to save results
 save_fold = "Results"
 save_subdir = input("Type name of subdirectory to save: ")
