@@ -5,4 +5,6 @@ Scripts to calculate the preferred nematic director field of liquid crystals ela
 - Proplot
 - Scipy
 
+# Calculation of director orientation #
+
  To run the scripts, a .xdmf file suitable for fenics is required. The physical surfaces which enforce strong anchoring must labeled with the tag number "101". 
