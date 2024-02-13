@@ -13,4 +13,4 @@ To compute the preferred director orientation, the script "Landau_de_Gennes_Qvec
 
 ## Simulation of optical experiments ##
 
-The script "optical_intensity_jones.py" simulates the intensity field of an optical microscopy experiment with orthogonal polarizer and analyzer. 
+The script "optical_intensity_jones.py" simulates the intensity field of an optical microscopy experiment with orthogonal polarizer and analyzer. It takes as input an xdmf file with the Q tensor solution (such as that produced by Landau_de_Gennes_Qvectorized.py), whose z-axis is aligned with the propagation director of the probing light. The calculation assumes an equal mixture of red (650nm), green (550nm) and blue (450nm). 
