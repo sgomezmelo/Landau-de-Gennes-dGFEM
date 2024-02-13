@@ -1,10 +1,14 @@
-Scripts to calculate the preferred nematic director field of liquid crystals elastomer within a scaffold, using the Landau de Gennes free energy functional with strong anchoring boundary conditions, as well as the resulting birefringence patterns and mechanical actuation. Nematic orientation and mechanical response are computed using the Finite Elements method. Therefore, the following packages are required to run these scripts:
+# Simulating Liquid Crystal Elastomer orientation and actuation #
+These scripts calculate the preferred nematic director field of liquid crystals within a scaffold, using the Landau de Gennes free energy functional with strong anchoring boundary conditions, as well as the resulting birefringence patterns and mechanical actuation of the elastomer. Nematic orientation and mechanical response are computed using the Finite Elements method. Therefore, the following packages are required to run these scripts:
 
 - Numpy
-- Fenics Legacy (dolfin)
+- Fenics Legacy (dolfin) and ufl
 - Proplot
 - Scipy
+- Meshio
 
 ## Calculation of director orientation ##
 
- To run the scripts, a .xdmf file suitable for fenics is required. The physical surfaces which enforce strong anchoring must labeled with the tag number "101". 
+To compute the preferred director orientation, the script "Landau_de_Gennes_Qvectorized.py" must be run. This script requires a Fenics suitable xdmf file, whose physical surfaces on which strong anchoring is enforced must be labelled with the same tag. Such tag is also required as input for the program. The script then computes the Q tensor field minimizer to the Landau de Gennes and saves it as an xdmf file.  
+
+## Simulation of optical experiments ##
