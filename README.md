@@ -1,4 +1,4 @@
-#Simulating Liquid Crystal Elastomer orientation and actuation#
+# Simulating Liquid Crystal Elastomer orientation and actuation
 These scripts calculate the preferred nematic director field of liquid crystals within a scaffold, using the Landau de Gennes free energy functional with strong anchoring boundary conditions, as well as the resulting birefringence patterns and mechanical actuation of the elastomer. Nematic orientation and mechanical response are computed using the Finite Elements method. Therefore, the following packages are required to run these scripts:
 
 - Numpy
