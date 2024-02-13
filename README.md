@@ -17,3 +17,5 @@ The script "optical_intensity_jones.py" simulates the intensity field of an opti
 
 
 ## Mechanical actuation ##
+
+The mechanical actuation of the elastomer for an analytically specified director field is computed by the "LC_hyperelastic_minimizer.py" script. It takes as input the mesh of the undeformed configuration as an .msh file that is then converted into xdmf by meshio. The program returns two xdmf files; one with the director field projected into the mesh and the resulting displacement field, which may be read with suitable software (e.g. Paraview). The specified nematic field is currently cylindrically radial, but it can be changed within the code. 
