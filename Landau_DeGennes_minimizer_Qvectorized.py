@@ -12,20 +12,20 @@ import os
 # in xdmf format and ratio of constants L/c and a/c, while assuming b = c.
 
 #Create folder to save results
+subfolder = input("Type name of .xdmf geometry folder: ")
+mesh_name = input("Type name of .xdmf geometry file: ")
 save_fold = "Results"
+geom_folder = "./Geometries/"
 save_subdir = input("Type name of subdirectory to save: ")
 save_dir = "./"+save_fold + "/" + save_subdir
 os.system("mkdir "+" "+save_dir)
-surf_marker = 101 #Label of physical surfaces to enforce strong anchoring
+surf_marker = int(input("Type numerical tag of physical surfaces with strong anchoring: ")) #Label of physical surfaces to enforce strong anchoring
 n_indep_comp = 5 #Number of independent components (3(3+1)/2 -1 = 5 for a symmetric traceless 3x3 tensor)
 a_B = 1.0/10.0 #Ratio of LdG constants A/B = A/C (assuming B and C are equal)
 L_c = 2e+6 # Coherence length of nematic LC L/B in um
 S0 = (1.0/2.0)*((1.0/3.0)+np.sqrt((1.0/3.0)**2+8.0*a_B/3.0)) # Corresponding LdG S eigenvalue
 
 #Import .xdmf geometry file into mesh + Mesh value collection for boundary conditions
-subfolder = input("Type name of .xdmf geometry folder: ")
-mesh_name = input("Type name of .xdmf geometry file: ")
-geom_folder = "./Geometries/"
 mesh = dolfin.cpp.mesh.Mesh()
 
 mvc_subdomain = dolfin.MeshValueCollection("size_t", mesh, mesh.topology().dim())
@@ -43,10 +43,7 @@ boundaries = dolfin.cpp.mesh.MeshFunctionSizet(mesh, mvc_boundaries)
 dx = Measure('dx', domain=mesh, subdomain_data=domains)
 ds = Measure('ds', domain=mesh, subdomain_data=domains)
 
-print("Number of elements: ", mesh.num_cells())
-
-def LG_energy(q,a_B,L_c):
-    #Landau de Gennes energy functional with a single elastic constant L
+def LG_energy(q,a_B,L_c): #Landau de Gennes energy functional with a single elastic constant L
     Q = as_tensor(((q[0],q[1],q[2]),(q[1],q[3],q[4]),(q[2],q[4],-(q[0]+q[3]))))
     dQ = nabla_grad(Q)
     tQ2 = inner(Identity(d),dot(Q,Q))
@@ -54,8 +51,7 @@ def LG_energy(q,a_B,L_c):
     E = L_c*inner(dQ,dQ)/2.0 - a_B*tQ2/2.0 - tQ3/3.0 + tQ2**2/4.0
     return E
 
-#Unnormalized one constant Frank energy grad(n)*grad(n)
-def Frank_E(u):
+def Frank_E(u): #Unnormalized one constant Frank energy grad(n)*grad(n)
    return inner(nabla_grad(u),nabla_grad(u))/2.0
 
 #Define suitable vector, tensor and scalar spaces     
