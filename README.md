@@ -10,7 +10,7 @@ These scripts calculate the preferred nematic director field of liquid crystals 
 In all three scripts we assume that there is a directory "Geometries" with each geometry in xdmf or msh file contained inside a separate subdirectory. The name of the subdirectory is required as input in all cases. 
 ## Calculation of director orientation ##
 
-To compute the preferred director orientation, the script "Landau_de_Gennes_Qvectorized.py" must be run. This script requires a Fenics suitable xdmf file, whose physical surfaces on which strong anchoring is enforced must be labelled with a single tag. Such tag is also required as input for the program. The script then computes the Q tensor field minimizer to the Landau de Gennes and saves it as an xdmf file.  The user may then extract the Q tensor field at the mesh points and diagonalize it with standard packages (such as numpy.linalg). The director will be the vector with the largest eigenvalue.
+To compute the preferred director orientation, the script "Landau_DeGennes_minimizer_Qvectorized.py" must be run. This script requires a Fenics suitable xdmf file, whose physical surfaces on which strong anchoring is enforced must be labelled with a single tag. Such tag is also required as input for the program. The script then computes the Q tensor field minimizer to the Landau de Gennes and saves it as an xdmf file.  The user may then extract the Q tensor field at the mesh points and diagonalize it with standard packages (such as numpy.linalg). The director will be the vector with the largest eigenvalue.
 
 ## Simulation of optical experiments ##
 
