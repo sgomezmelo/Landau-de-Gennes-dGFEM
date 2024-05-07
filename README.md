@@ -1,4 +1,6 @@
-# Simulating Liquid Crystal Elastomer orientation and actuation
+# Alignment and Actuation of Liquid Crystals via 3D Confinement and Two-Photon Laser Printing
+This repository contains the relevant scripts to the publication "Alignment and Actuation of Liquid Crystals via 3DConfinement and Two-Photon Laser Printing" (DOI: 10.26434/chemrxiv-2024-dp30s-v2). Please consider citing if you found this useful. 
+
 These scripts calculate the preferred nematic director field of liquid crystals within a scaffold, using the Landau de Gennes free energy functional with strong anchoring boundary conditions, as well as the resulting birefringence patterns and mechanical actuation of the elastomer. Nematic orientation and mechanical response are computed using the Finite Elements method. Therefore, the following packages are required to run these scripts:
 
 - Numpy
